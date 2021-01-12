@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNavigationRubricTable extends Migration
+class CreateNvgRubricTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNavigationRubricTable extends Migration
      */
     public function up()
     {
-        Schema::create('navigation_rubric', function (Blueprint $table) {
+        Schema::create('nvg_rubric', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->foreignId('head_id');
@@ -21,7 +21,7 @@ class CreateNavigationRubricTable extends Migration
             $table->string('name', 255);
             $table->string('slug', 255);
 
-            $table->foreign('head_id')->references('id')->on('navigation_head');
+            $table->foreign('head_id')->references('id')->on('nvg_head');
         });
     }
 
@@ -32,6 +32,6 @@ class CreateNavigationRubricTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('navigation_rubric');
+        Schema::dropIfExists('nvg_rubric');
     }
 }
