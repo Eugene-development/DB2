@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductionCardTable extends Migration
+class CreateProdOrderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProductionCardTable extends Migration
      */
     public function up()
     {
-        Schema::create('production_card', function (Blueprint $table) {
+        Schema::create('prod_order', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateProductionCardTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('production_card');
+        Schema::dropIfExists('prod_order');
     }
 }

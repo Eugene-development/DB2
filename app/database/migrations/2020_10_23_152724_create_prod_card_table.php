@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductionPerfomanceTable extends Migration
+class CreateProdCardTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProductionPerfomanceTable extends Migration
      */
     public function up()
     {
-        Schema::create('production_perfomance', function (Blueprint $table) {
+        Schema::create('prod_card', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateProductionPerfomanceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('production_perfomance');
+        Schema::dropIfExists('prod_card');
     }
 }

@@ -29,7 +29,7 @@ class CreateSeoTable extends Migration
             //            $table->foreign('submenu_id')->references('id')->on('submenu');
             //            $table->foreign('post_id')->references('id')->on('post');
             $table->foreign('category_id')->references('id')->on('nvg_category');
-            $table->foreign('product_id')->references('id')->on('production_product');
+            $table->foreign('product_id')->references('id')->on('prod_product');
 
 
             $table->string('tagable_id', 255)->nullable();

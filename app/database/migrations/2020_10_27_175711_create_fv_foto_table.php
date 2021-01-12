@@ -18,9 +18,9 @@ class CreateFvFotoTable extends Migration
             $table->timestamps();
 
             $table->foreignId('user_id')->nullable();
-            $table->foreignId('production_perfomance_id')->nullable();
-            $table->foreignId('production_product_id')->nullable();
-            $table->foreignId('production_service_id')->nullable();
+            $table->foreignId('prod_perfomance_id')->nullable();
+            $table->foreignId('prod_product_id')->nullable();
+            $table->foreignId('prod_service_id')->nullable();
             $table->foreignId('blog_post_id')->nullable();
             $table->foreignId('company_team_id')->nullable();
             $table->foreignId('company_master_id')->nullable();
@@ -29,9 +29,9 @@ class CreateFvFotoTable extends Migration
             $table->foreignId('company_technology_id')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('production_perfomance_id')->references('id')->on('production_perfomance');
-            $table->foreign('production_product_id')->references('id')->on('production_product');
-            $table->foreign('production_service_id')->references('id')->on('production_service');
+            $table->foreign('prod_perfomance_id')->references('id')->on('prod_perfomance');
+            $table->foreign('prod_product_id')->references('id')->on('prod_product');
+            $table->foreign('prod_service_id')->references('id')->on('prod_service');
             $table->foreign('blog_post_id')->references('id')->on('blog_post');
             $table->foreign('company_team_id')->references('id')->on('company_team');
             $table->foreign('company_master_id')->references('id')->on('company_master');
