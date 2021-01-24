@@ -18,6 +18,7 @@ class CreateProdProductTable extends Migration
             $table->timestamps();
             $table->foreignId('user_id')->nullable();
             $table->foreignId('category_id')->nullable();
+            $table->foreignId('action_id')->nullable();
 
             $table->text('name');
             $table->string('slug', 255)->nullable();
@@ -29,11 +30,11 @@ class CreateProdProductTable extends Migration
             $table->string('discount_price', 255)->nullable();
             $table->string('unit', 255)->nullable();
             $table->string('warehouse')->default(0);
-            $table->boolean('present')->default(0);
-            $table->boolean('action')->default(0);
-            $table->boolean('sale')->default(0);
-            $table->boolean('new')->default(0);
-            $table->boolean('bestseller')->default(0);
+//            $table->boolean('present')->default(0);
+//            $table->boolean('action')->default(0);
+//            $table->boolean('sale')->default(0);
+//            $table->boolean('new')->default(0);
+//            $table->boolean('bestseller')->default(0);
             $table->string('photo1', 255)->nullable();
             $table->string('photo2', 255)->nullable();
             $table->string('photo3', 255)->nullable();
@@ -45,7 +46,8 @@ class CreateProdProductTable extends Migration
             //Не пойму почему не могу внешний ключ присвоить.
 //            Можешь! Это в сидинге проблема. Ты значение не прописывал наверняка
 //                        $table->foreign('user_id')->references('id')->on('users');
-//                        $table->foreign('category_id')->references('id')->on('navigation_category');
+                        $table->foreign('category_id')->references('id')->on('nvg_category');
+                        $table->foreign('action_id')->references('id')->on('prod_action');
         });
     }
 

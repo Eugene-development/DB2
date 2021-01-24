@@ -16,6 +16,7 @@ class CreateProdActionTable extends Migration
         Schema::create('prod_action', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('title', 255);
         });
     }
 
