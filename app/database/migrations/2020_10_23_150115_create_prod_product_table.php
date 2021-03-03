@@ -15,10 +15,12 @@ class CreateProdProductTable extends Migration
     {
         Schema::create('prod_product', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('user_id')->nullable();
             $table->foreignId('category_id')->nullable();
             $table->foreignId('action_id')->nullable();
+//            $table->foreignId('foto_id')->nullable();
+
+            $table->timestamps();
 
             $table->text('name');
             $table->string('slug', 255)->nullable();
@@ -35,19 +37,16 @@ class CreateProdProductTable extends Migration
 //            $table->boolean('sale')->default(0);
 //            $table->boolean('new')->default(0);
 //            $table->boolean('bestseller')->default(0);
-            $table->string('photo1', 255)->nullable();
-            $table->string('photo2', 255)->nullable();
-            $table->string('photo3', 255)->nullable();
-            $table->string('photo4', 255)->nullable();
-            $table->string('photo5', 255)->nullable();
+//            $table->string('photo1', 255)->nullable();
+//            $table->string('photo2', 255)->nullable();
+//            $table->string('photo3', 255)->nullable();
+//            $table->string('photo4', 255)->nullable();
+//            $table->string('photo5', 255)->nullable();
 
-
-
-            //Не пойму почему не могу внешний ключ присвоить.
-//            Можешь! Это в сидинге проблема. Ты значение не прописывал наверняка
-//                        $table->foreign('user_id')->references('id')->on('users');
-                        $table->foreign('category_id')->references('id')->on('nvg_category');
-                        $table->foreign('action_id')->references('id')->on('prod_action');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('category_id')->references('id')->on('nvg_category');
+            $table->foreign('action_id')->references('id')->on('prod_action');
+//            $table->foreign('foto_id')->references('id')->on('fv_foto');
         });
     }
 

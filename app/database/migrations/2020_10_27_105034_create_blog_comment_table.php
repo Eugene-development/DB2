@@ -15,8 +15,9 @@ class CreateBlogCommentTable extends Migration
     {
         Schema::create('blog_comment', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('blog_post_id')->nullable();
+
+            $table->timestamps();
 
             $table->text('text')->nullable();
 

@@ -15,8 +15,9 @@ class CreateNvgRubricTable extends Migration
     {
         Schema::create('nvg_rubric', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('head_id');
+
+            $table->timestamps();
 
             $table->string('name', 255);
             $table->string('slug', 255);

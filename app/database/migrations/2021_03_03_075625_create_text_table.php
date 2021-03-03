@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogPostTable extends Migration
+class CreateTextTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateBlogPostTable extends Migration
      */
     public function up()
     {
-        Schema::create('blog_post', function (Blueprint $table) {
+        Schema::create('text', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable();
             $table->timestamps();
+
+            $table->foreignId('menu_id')->nullable();
+            $table->foreignId('head_id')->nullable();
+            $table->foreignId('rubric_id')->nullable();
+            $table->foreignId('category_id')->nullable();
+            $table->foreignId('product_id')->nullable();
 
             $table->text('title')->nullable();
             $table->text('description')->nullable();
@@ -30,7 +35,12 @@ class CreateBlogPostTable extends Migration
             $table->string('link', 255)->nullable();
             $table->string('quote', 255)->nullable();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('menu_id')->references('id')->on('nvg_menu');
+            $table->foreign('head_id')->references('id')->on('nvg_head');
+            $table->foreign('rubric_id')->references('id')->on('nvg_rubric');
+            $table->foreign('category_id')->references('id')->on('nvg_category');
+            $table->foreign('product_id')->references('id')->on('prod_product');
+
         });
     }
 
@@ -41,6 +51,12 @@ class CreateBlogPostTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_post');
+        Schema::dropIfExists('text');
     }
 }
+
+
+
+
+
+

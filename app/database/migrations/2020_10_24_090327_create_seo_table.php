@@ -15,12 +15,13 @@ class CreateSeoTable extends Migration
     {
         Schema::create('seo', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('menu_id')->nullable();
 //            $table->unsignedBigInteger('submenu_id')->nullable();
             $table->foreignId('post_id')->nullable();
             $table->foreignId('category_id')->nullable();
             $table->foreignId('product_id')->nullable();
+
+            $table->timestamps();
 
             $table->text('title')->nullable();
             $table->text('description')->nullable();

@@ -15,8 +15,9 @@ class CreateNvgHeadTable extends Migration
     {
         Schema::create('nvg_head', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('menu_id');
+
+            $table->timestamps();
 
             $table->string('name', 255);
             $table->string('slug', 255);
